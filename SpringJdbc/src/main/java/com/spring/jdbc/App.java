@@ -1,5 +1,6 @@
-package com.spring.jdbc;
+ package com.spring.jdbc;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -12,16 +13,16 @@ public class App
     {
         System.out.println( "MY PROGRAM STARTED......" );
         
-        ApplicationContext context = new ClassPathXmlApplicationContext("com/spring/jdbc/Config.xml");
+        ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfig.class);
         StudentDao studentDao = context.getBean("studentDao",StudentDao.class);
         
-        /* INSERTING VALUE TO DATABASE - 1  
+        // INSERTING VALUE TO DATABASE - 1  
         Student student = new Student();
-        student.setId(638);
-        student.setName("Rinki");
-        student.setCity("London");
+        student.setId(445);
+        student.setName("pooja");
+        student.setCity("Canada");
         int result = studentDao.insert(student);
-        System.out.println("student added " +result);  */
+        System.out.println("student added " +result);
         
         
         /* UPDATING VALUE TO DATABASE - 2
@@ -32,9 +33,9 @@ public class App
         int result = studentDao.change(student);
         System.out.println("student data updated " +result);  */
         
-        // DELETE VALUE TO DATABASE - 3
+        /*DELETE VALUE TO DATABASE - 3
         int result = studentDao.delete(668);
-        System.out.println("student data deleted " +result);
+        System.out.println("student data deleted " +result);*/
         
         
         
